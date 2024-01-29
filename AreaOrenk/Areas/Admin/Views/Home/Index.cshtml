@@ -1,0 +1,62 @@
+﻿@model IEnumerable<AreaOrenk.Data.Slayt>
+
+@{
+    ViewData["Title"] = "Slaytalar Listesi";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (ViewBag.DuplicateSiraNumbers != null && ViewBag.DuplicateSiraNumbers.Count > 0)
+{
+    <div class="alert alert-warning">
+       Uyarı! iki aynı sıra numarasına sahip slayt vardır. Gerekli değişiklikleri yapınız.
+    </div>
+}
+<p>
+    <a asp-action="Create" class="btn btn-outline-primary">Yeni Slayt Ekle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ResimYolu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Baslik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aciklama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sira)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ResimYolu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Baslik)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Aciklama)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sira)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Düzenle</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary">Slaytı Detaylı Göster</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

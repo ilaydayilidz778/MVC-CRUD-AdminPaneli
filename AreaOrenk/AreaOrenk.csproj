@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\admin\.vs\ProjectSettings.json" />
+    <Content Include="wwwroot\admin\.vs\VSWorkspaceState.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="wwwroot\admin\.vs\startbootstrap-sb-admin-gh-pages\v17\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\admin\.vs\slnx.sqlite" />
+    <None Include="wwwroot\admin\.vs\startbootstrap-sb-admin-gh-pages\config\applicationhost.config" />
+    <None Include="wwwroot\admin\.vs\startbootstrap-sb-admin-gh-pages\FileContentIndex\c196571f-ef12-4e5b-9627-6703609555c5.vsidx" />
+  </ItemGroup>
+
+</Project>

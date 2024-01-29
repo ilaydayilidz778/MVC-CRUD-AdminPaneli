@@ -1,0 +1,62 @@
+﻿@model AreaOrenk.Areas.Admin.Models.DuzenleSlaytViewModel
+
+@{
+    ViewData["Title"] = "Slaytı Düzenleme Formu";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (Context.Request.Query["islem"] == "basarili")
+{
+    <div class="alert alert-success">
+        Yeni Slayt Başarıyla Güncellendi.
+    </div>
+}
+
+<h4>Slayt</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mb-3">
+                <label asp-for="ResimDosyasi" class="control-label"></label>
+                <input asp-for="ResimDosyasi" class="form-control" type="file" />
+                <span asp-validation-for="ResimDosyasi" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Baslik" class="control-label"></label>
+                <input asp-for="Baslik" class="form-control" />
+                <span asp-validation-for="Baslik" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Aciklama" class="control-label"></label>
+                <input asp-for="Aciklama" class="form-control" />
+                <span asp-validation-for="Aciklama" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Sira" class="control-label"></label>
+                <input asp-for="Sira" class="form-control" />
+                <span asp-validation-for="Sira" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <input asp-for="ResimYolu" type="hidden" value="@Model.ResimYolu" />
+                <img src="~/img/@Model.ResimYolu" alt="@Model.Id" class="w-50" />
+                <img src="@Model.ResimDosyasi" alt="@Model.Id" class="w-50" />
+            </div>
+            <div class="form-group mb-3">
+                <input type="submit" value="Düzenle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="text-secondary">Listeye Geri Dön</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
